@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+  <h1>Tags</h1>
+  <a href="{% url 'to-do-list:tag-create' %}"
+     style="display: inline-block; margin-bottom: 20px; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 600;">
+    Create New Tag
+  </a>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    {% for tag in tags %}
+      <div style="display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd; border-radius: 6px; padding: 12px;">
+        <span style="font-size: 18px;">{{ tag.name }}</span>
+        <div>
+          <a href="{% url 'to-do-list:tag-update' pk=tag.id%}" style="margin-right: 8px; padding: 6px 12px; background-color: #ffc107; color: black; text-decoration: none; border-radius: 4px;">Update</a>
+          <a href="{% url 'to-do-list:tag-delete' pk=tag.id%}" style="padding: 6px 12px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 4px;">Delete</a>
+        </div>
+      </div>
+    {% empty %}
+      <p>No tags yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
