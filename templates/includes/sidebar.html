@@ -1,0 +1,16 @@
+
+<ul class="nav flex-column bg-dark vh-100 p-3 text-white" style="width: 220px;">
+  <li class="nav-item mb-3">
+    <h4 class="text-center">Menu</h4>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white {% if request.resolver_match.url_name == 'index' %}active bg-primary rounded{% endif %}" href="{% url 'to-do-list:index' %}">
+      🏠 Home
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white {% if request.resolver_match.url_name == 'tag-list' %}active bg-primary rounded{% endif %}" href="{% url 'to-do-list:tag-list' %}">
+      🏷️ Tags
+    </a>
+  </li>
+</ul>
